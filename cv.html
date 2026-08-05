@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolli Balaji - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: hsl(74, 79%, 21%);
+      --primary-light: hsl(74, 79%, 95%);
+      --black: #000000;
+      --dark-grey: #444444;
+      --light-grey: #C9C9C9;
+      --bg: #FAFAFA;
+      --border-color: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--black);
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 50px 60px;
+      border: 2px solid var(--border-color);
+      box-shadow: 8px 8px 0px var(--black);
+      position: relative;
+    }
+
+    /* Print control button */
+    .print-bar {
+      max-width: 850px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 15px 25px;
+      border: 2px solid var(--black);
+      box-shadow: 4px 4px 0px var(--black);
+    }
+
+    .btn-print {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 2px solid var(--black);
+      padding: 8px 18px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print:hover {
+      background-color: #ffffff;
+      color: var(--black);
+      box-shadow: 2px 2px 0px var(--black);
+      transform: translate(-1px, -1px);
+    }
+
+    .print-msg {
+      font-size: 0.9rem;
+      color: var(--dark-grey);
+    }
+
+    .sketch-tag {
+      font-family: 'Caveat', cursive;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    /* Header styling */
+    header {
+      border-bottom: 2.5px solid var(--black);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    .header-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 25px;
+      margin-top: 15px;
+      font-size: 0.92rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--dark-grey);
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid var(--black);
+      padding-bottom: 4px;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Skills layout */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px 20px;
+      margin-bottom: 8px;
+    }
+
+    .skill-category {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    .skill-list {
+      font-size: 0.92rem;
+      color: var(--dark-grey);
+    }
+
+    /* Experience & Projects layout */
+    .timeline-item {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .role-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .role-title a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 8px;
+      border: 1px solid var(--black);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 400;
+      background: var(--primary-light);
+    }
+
+    .role-title a:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .item-date {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--black);
+    }
+
+    .timeline-item ul {
+      list-style-type: none;
+      padding-left: 12px;
+    }
+
+    .timeline-item li {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--dark-grey);
+      margin-bottom: 4px;
+      padding-left: 14px;
+    }
+
+    .timeline-item li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: -1px;
+      font-size: 1.1rem;
+    }
+
+    .tech-stack {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .tech-stack span {
+      font-weight: 400;
+      color: var(--dark-grey);
+    }
+
+    /* Certs & Achievements grid */
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .cert-title {
+      color: var(--dark-grey);
+    }
+
+    .cert-title a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cert-title a:hover {
+      text-decoration: underline;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px 30px;
+    }
+
+    .edu-item {
+      border: 1px dashed var(--light-grey);
+      padding: 10px;
+      position: relative;
+    }
+
+    .edu-school {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .edu-degree {
+      font-size: 0.88rem;
+      color: var(--dark-grey);
+    }
+
+    .edu-gpa {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 2px 6px;
+    }
+
+    .edu-loc-date {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #777777;
+      margin-top: 4px;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+
+      .print-bar {
+        display: none !important;
+      }
+
+      .resume-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      body, p, li, .skill-list, .contact-info {
+        font-size: 0.85rem;
+      }
+
+      .role-title {
+        font-size: 0.95rem;
+      }
+
+      .role-title a {
+        display: none !important; /* Hide links during paper print */
+      }
+
+      section {
+        margin-bottom: 18px;
+      }
+
+      .edu-item {
+        border: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <div class="print-msg">
+      <span class="sketch-tag">Handcrafted UX Layout</span> &nbsp;|&nbsp; Press <strong>Ctrl + P</strong> to save as a neat PDF
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <div class="header-main">
+        <div>
+          <h1>Kolli Balaji</h1>
+          <div class="sketch-tag" style="margin-top: 5px;">UI/UX Designer | Web Developer | AI Enthusiast</div>
+        </div>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>Email:</strong> <a href="mailto:kollibalaji5@gmail.com">kollibalaji5@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <strong>Mobile:</strong> <a href="tel:+919346829834">+91 9346829834</a>
+        </div>
+        <div class="contact-item">
+          <strong>GitHub:</strong> <a href="https://github.com/KolliBalaji" target="_blank">github.com/KolliBalaji</a>
+        </div>
+        <div class="contact-item">
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kollibalaji" target="_blank">linkedin.com/in/kollibalaji</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">Languages:</div>
+        <div class="skill-list">C++, SQL, Java, Python, C, JavaScript</div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">Frameworks/Libraries:</div>
+        <div class="skill-list">HTML, CSS, Tailwind CSS, React.js, Node.js, Express.js, Laravel, OpenCV</div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">Tools/Platforms:</div>
+        <div class="skill-list">Figma, Canva, Floto-ai, UX Pilot, MySQL, Git, GitHub, Tesseract OCR</div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">Soft Skills:</div>
+        <div class="skill-list">Problem-Solving, Team-Collaboration, Communication Proficiency, Leadership, Conflict Resolution</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="role-title">
+            Infosys Springboard 6.0 | AI Intern
+            <a href="https://github.com/KolliBalaji/aadhaar-fraud-detection-ai" target="_blank">GitHub</a>
+          </div>
+          <div class="item-date">Feb '26 – Mar '26</div>
+        </div>
+        <ul>
+          <li>Architected an AI-powered Aadhaar verification system using Computer Vision and OCR, enabling 4-class document classification and processing 50,000+ document validations, increasing verification throughput by 3× during internship tenure.</li>
+          <li>Orchestrated a multi-layer fraud detection pipeline integrating face detection, QR code parsing, logo verification, and OCR cross-validation, boosting fraud detection accuracy by ~40% and reducing false positives by ~25% compared to single-layer approaches.</li>
+          <li>Streamlined end-to-end verification workflows with real-time document capture/upload, validation history tracking, and automated CSV/PDF report generation, cutting manual review effort by ~60% and improving processing turnaround time by ~35%.</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: <span>Python, OpenCV, PyTesseract, Tesseract OCR, Streamlit, NumPy, Pandas, Pillow, ReportLab</span></div>
+      </div>
+
+      <div class="timeline-item" style="margin-top: 15px;">
+        <div class="item-header">
+          <div class="role-title">
+            Think Design Prototype | Training on Design Thinking & Figma
+            <a href="https://drive.google.com/file/d/1aQsr3ALfSO2BWC7L0L4JQ26cXRKFJSgW/view" target="_blank">Certificate</a>
+          </div>
+          <div class="item-date">Jun '25 – Jul '25</div>
+        </div>
+        <ul>
+          <li>Applied the Design Thinking framework (empathize, define, ideate, prototype, test) to design user-centered solutions by translating business requirements and user needs into structured design workflows.</li>
+          <li>Designed web and application interfaces, created wireframes, user flows, and high-fidelity prototypes, and contributed to UI improvements and usability enhancements through iterative feedback and real-world design tasks.</li>
+          <li>Gained hands-on experience with Figma, Canva, and Gen-AI tools for design ideation, UX research, rapid prototyping, and content structuring, ensuring consistency with modern UI/UX principles and design systems.</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: <span>Figma, Canva, UI/UX Design, Wireframing, Prototyping, Design Systems, Gen-AI Tools</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="role-title">
+            KiKo
+            <a href="https://www.figma.com/design/3E2ZAhY82IMAVAk1bPoMPQ/KiKo?node-id=0-1&t=lb3w9QcZo79icS0m-0" target="_blank">Figma</a>
+          </div>
+          <div class="item-date">Apr '26</div>
+        </div>
+        <ul>
+          <li>Focused on building a gamified child assessment platform that identifies learning abilities and cognitive skills through interactive experiences, following a user-centered approach for both children and parents.</li>
+          <li>Created complete UI/UX flows including onboarding screens, game dashboards, drag-and-drop learning interactions, and analytics dashboards with progress tracking, and personalized recommendations, improving usability and engagement.</li>
+          <li>Utilized Design Thinking principles to develop wireframes and high-fidelity prototypes using Figma, while incorporating Canva and Gen-AI tools for ideation and rapid design iterations with consistent visual hierarchy and accessibility.</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: <span>Figma, Canva, Floto-AI, Gen-AI Tools, Design Thinking</span></div>
+      </div>
+
+      <div class="timeline-item" style="margin-top: 15px;">
+        <div class="item-header">
+          <div class="role-title">
+            KETCH
+            <a href="https://www.figma.com/design/LfGDPmmlXSQy2OpMPIG8Aw/KETCH?node-id=0-1&t=friRsgQ981UUZUnN-0" target="_blank">Figma</a>
+          </div>
+          <div class="item-date">Nov '25</div>
+        </div>
+        <ul>
+          <li>Executed end-to-end UI/UX workflow for the KETCH e-commerce clothing app using Figma, covering user research, wireframing, and interactive prototyping to create a seamless shopping experience.</li>
+          <li>Performed primary and secondary research along with competitor analysis, translating insights into user-centric decisions that improved navigation, product discovery, and overall usability.</li>
+          <li>Crafted mood boards, a style guide, and mid- to high-fidelity screens, ensuring visual consistency while creating interactive flows for product browsing, cart management, and checkout.</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: <span>Figma, UI/UX Design, Wireframing, Prototyping, User Research, Design Systems</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certificates</h2>
+      <div class="cert-item">
+        <div class="cert-title">Oracle Data Platform 2025 Certified Foundation Associate | Oracle</div>
+        <div class="item-date"><a href="https://drive.google.com/file/d/1JhtYxiGAUt0V3AQdQPDb9cWGkT8BQiIC/view" target="_blank">Certificate</a> | Apr '26</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title">ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM | Infosys</div>
+        <div class="item-date"><a href="https://drive.google.com/file/d/1nnjAhhT8p2Oygbuzg8PcpQWQKDQrIm-_/view" target="_blank">Certificate</a> | Aug '25</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title">Think Design Prototype – Summer Training on Design Thinking & Figma | LPU</div>
+        <div class="item-date"><a href="https://drive.google.com/file/d/1aQsr3ALfSO2BWC7L0L4JQ26cXRKFJSgW/view" target="_blank">Certificate</a> | Jul '25</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Achievements</h2>
+      <div class="timeline-item" style="margin-bottom: 0;">
+        <ul>
+          <li>Organized 10+ university events with Student Organization SPIRIT.</li>
+          <li>INSPIRE Awards – MANAK (DST, Government of India) – Received ₹10,000 innovation award and presented a science project at the District Level Exhibition & Project Competition (DLEPC). – INSPIRE Ref No: 19AP1827869</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 0;">
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <div class="edu-school">Lovely Professional University</div>
+          <div class="edu-degree">B.Tech - Computer Science and Engineering</div>
+          <div class="edu-gpa">CGPA: 7.1</div>
+          <div class="edu-loc-date">
+            <span>Phagwara, Punjab</span>
+            <span>Aug '23 – Present</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Sri Aditya Jr College</div>
+          <div class="edu-degree">Intermediate (12th Grade)</div>
+          <div class="edu-gpa">CGPA: 9.5</div>
+          <div class="edu-loc-date">
+            <span>Rajam, Andhra Pradesh</span>
+            <span>Apr '21 – Mar '23</span>
+          </div>
+        </div>
+        <div class="edu-item" style="grid-column: span 2;">
+          <div class="edu-school">Manasa Veni High School</div>
+          <div class="edu-degree">Matriculation (10th Grade)</div>
+          <div class="edu-gpa">CGPA: 10.0</div>
+          <div class="edu-loc-date">
+            <span>Ponduru, Andhra Pradesh</span>
+            <span>Apr '20 – Mar '21</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
